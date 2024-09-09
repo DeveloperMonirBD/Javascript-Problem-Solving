@@ -220,3 +220,189 @@ var a = [1, 2, '3', 4, 5];
 // console.log(uniqueArray);
 
 // ### Task-19
+// আমার কাছে একটা array তে কিছু নাম্বার আছে, আমাকে বের করতে হবে সবচেয়ে বড় নাম্বার কোনটা ।
+
+// function giveBiggestNumber(array) {
+//     if (!Array.isArray(array)) {
+//         return 'this is not an array...!';
+//     }
+//     let biggest = array[0];
+//     for (let i = 1; i < array.length; i++) {
+//         if (array[i] > biggest) {
+//             biggest = array[i];
+//         }
+//     }
+//     return biggest;
+// }
+// // const numbers = [2, 4, 21, 5, 6, 23, 20, 9];
+// const numbers = [30, 54, 400, 24];
+// // const numbers = true
+// const result = giveBiggestNumber(numbers);
+// console.log(result);
+
+
+// ### Task-20
+//amar kasea akta object asea . akhon amakea ai object ar maddhomea akta function create korte hobe Abong validation korte hobe.
+
+// const person = {
+//     name: 'monir',
+//     address: 'jashore'
+// };
+
+// function createEmail(info) {
+//     // console.log(typeof (info));
+//     if (typeof info !== "object") {
+//         return "Invalid Object";
+//     }
+    
+//     const result = info.name + "@" + info.address + '.com';
+//     return result
+// }
+
+// const result = createEmail(person)
+// console.log(result);
+
+// ### Task-21
+// মনে করেন আপনার প্রতি মাসের ঘর ভাড়া ৫০০০ টাকা, খাবার খরচ ৩০০০ টাকা এবং হাত খরচ ২০০০ টাকা । বাকি টাকা আপনি জমা করেন । এখন মাস শেষে আপনার জমার পরিমান কত হবে, আপনার আয় এর উপরে ভিত্তি করে একটি Js Function create করুন। এবং Validation করুন।;
+
+// function calculateSavings(income) {
+//     if (typeof income !== "number") {
+//         return "invalid input"
+//     }
+
+//     const houseRent = 5000;
+//     const mealCost = 3000;
+//     const personalExpenses = 2000;
+//     const totalExpenses = houseRent + mealCost + personalExpenses;
+
+//     if (totalExpenses > income) {
+//         return "Earn more.. !"
+//     }
+
+//     const savings = income - totalExpenses;
+//     return savings;
+
+// }
+
+// const result = calculateSavings(7000);
+// console.log(result)
+
+// ### Task-22
+// একটা array এর ভেতরে কয়টা boolean ভ্যালু আছে তার কাউন্ট করে দেখাও
+
+// const x = [3, false, 4, 6, "hello", true, 65, { name: "monir" }]
+
+// function countBoolean(array) {
+//     if (!Array.isArray(array)) {
+//         return "Please provide valid array"
+//     }
+
+//     let count = 0;
+//     for (let item of array) {
+//         if (typeof item === 'boolean') {
+//             count++
+//         }
+//     }
+//     return count;
+// }
+
+// const result = countBoolean(x);
+// console.log(result)
+
+// ### Task-23
+// Borjatri jabe 234 Jon, akta bus a jatri jabe 50 Jon ..akjon Kom holeao jabe na. Akta Micro tea jatri jabe 15 Jon... Akjon Kom holeao jabe na. R jara bus & Micro tea jate parbe na Tara rickshaw tea jabe. Tobe  rickshaw Vara ak ak Jon proti nibe 20 taka. tahole total koto taka rickshaw vara dite hobe ..??  Ai problem ta function ar maddhomea korte hobe
+
+/**
+ * bus = 50;
+ * micro = 15;
+ * rickshaw cost 20 tk.
+ * borjatri = 234;
+ * 
+ * calculation:-
+ * bus(4) = 200, remaining = 34;
+ * micro(2) = 30, remaining = 4;
+ * rickshaw (4) = 20 * 4 = 80 tk.
+ */
+
+// function rickshawVara(peoples) {
+
+//     const bus = 50;
+//     const micro = 15;
+//     const rickshawCost = 20;
+
+//     const remainAfterBus = peoples % bus;
+//     const remainAfterMicro = remainAfterBus % micro;
+//     return remainAfterMicro * rickshawCost
+
+// }
+
+// console.log(rickshawVara(234))
+
+// ### Task-24
+// সমকোনী ত্রীভুজের বৃহত্তর বাহুর উপর অঙ্কিত বর্গ ক্ষেত্রের  ক্ষেত্রফল অপর দুই বাহুর উপর অঙ্কিত বর্গ ক্ষেত্রের  ক্ষেত্রফলের সমান, প্রমান কর
+
+//abc trangle --->  ac^2 = ab^2 + bc^2
+
+// function somokoniTest(ac, ab, bc) {
+//     //validation check:
+//     if (typeof ac !== 'number' || typeof ab !== 'number' || typeof ac !== 'number') {
+//         return 'Invalid input';
+//     }
+
+//     const biggestSquare = ac ** 2;
+//     const smallSquare1 = ab ** 2;
+//     const smallSquare2 = bc ** 2;
+
+//     //ac^2 = ab^2 + bc^2
+//     if (biggestSquare === (smallSquare1 + smallSquare2)) {
+//         return "Somokoni Trangle ... !"
+//     } else {
+//         return "Not Somokoni Trangle ... !"
+//     }
+// }
+
+// const result = somokoniTest(5, 3, 4)
+// console.log(result)
+
+// ### Task-25
+
+const person1 = {
+    name: "Rafi Hasan",
+    honors: 30,
+    hsc: 42,
+    isFFfamily: true
+}
+
+const person2 = {
+    name: "Nahid Hasan",
+    honors: 25,
+    hsc: 32,
+    isFFfamily: false
+}
+
+function jobSelection(info) {
+    //validation check:
+    if (typeof info !== "object") {
+        return "invalid object"
+    }
+
+    let total_marks = info.honors + info.hsc;
+    //condition:
+    if (info.isFFfamily) {
+        total_marks = total_marks + (total_marks * (20/100))
+    }
+    console.log('Your Total Mark: ' + total_marks)
+
+    if (info.isFFfamily && total_marks >= 80) {
+        return "So, You can get the job.."
+    } else if (info.isFFfamily && total_marks < 80) {
+        return "So, You can't get the job. Next time you can try.... !!!"
+    } else if (!info.isFFfamily && total_marks >= 80) {
+        return "So, You can get the job ... "
+    } else if (!info.isFFfamily && total_marks < 80) {
+        return "So, I am sorry,, try another time.."
+    }
+}
+
+const result = jobSelection(person1);
+console.log(result);
