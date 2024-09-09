@@ -240,7 +240,6 @@ var a = [1, 2, '3', 4, 5];
 // const result = giveBiggestNumber(numbers);
 // console.log(result);
 
-
 // ### Task-20
 //amar kasea akta object asea . akhon amakea ai object ar maddhomea akta function create korte hobe Abong validation korte hobe.
 
@@ -254,7 +253,7 @@ var a = [1, 2, '3', 4, 5];
 //     if (typeof info !== "object") {
 //         return "Invalid Object";
 //     }
-    
+
 //     const result = info.name + "@" + info.address + '.com';
 //     return result
 // }
@@ -317,7 +316,7 @@ var a = [1, 2, '3', 4, 5];
  * micro = 15;
  * rickshaw cost 20 tk.
  * borjatri = 234;
- * 
+ *
  * calculation:-
  * bus(4) = 200, remaining = 34;
  * micro(2) = 30, remaining = 4;
@@ -366,43 +365,141 @@ var a = [1, 2, '3', 4, 5];
 
 // ### Task-25
 
-const person1 = {
-    name: "Rafi Hasan",
-    honors: 30,
-    hsc: 42,
-    isFFfamily: true
+// const person1 = {
+//     name: "Rafi Hasan",
+//     honors: 30,
+//     hsc: 42,
+//     isFFfamily: true
+// }
+
+// const person2 = {
+//     name: "Nahid Hasan",
+//     honors: 25,
+//     hsc: 32,
+//     isFFfamily: false
+// }
+
+// function jobSelection(info) {
+//     //validation check:
+//     if (typeof info !== "object") {
+//         return "invalid object"
+//     }
+
+//     let total_marks = info.honors + info.hsc;
+//     //condition:
+//     if (info.isFFfamily) {
+//         total_marks = total_marks + (total_marks * (20/100))
+//     }
+//     console.log('Your Total Mark: ' + total_marks)
+
+//     if (info.isFFfamily && total_marks >= 80) {
+//         return "So, You can get the job.."
+//     } else if (info.isFFfamily && total_marks < 80) {
+//         return "So, You can't get the job. Next time you can try.... !!!"
+//     } else if (!info.isFFfamily && total_marks >= 80) {
+//         return "So, You can get the job ... "
+//     } else if (!info.isFFfamily && total_marks < 80) {
+//         return "So, I am sorry,, try another time.."
+//     }
+// }
+
+// const result = jobSelection(person1);
+// console.log(result);
+
+// #### Task-26
+// (10 * 120) - (500 + (8 * 50)) = 300 ; atakea fucntion a convert korte hobe. abong validation korte hobe jenoo (- value) na asea:
+
+function calculateMoney(ticketSale) {
+    if (ticketSale < 0 || typeof ticketSale !== 'number') {
+        return 'Invalid Number';
+    }
+    let remainingAmount = ticketSale * 120 - (500 + 8 * 50);
+    return remainingAmount;
 }
 
-const person2 = {
-    name: "Nahid Hasan",
-    honors: 25,
-    hsc: 32,
-    isFFfamily: false
-}
+// console.log(calculateMoney(10));
+// console.log(calculateMoney(1055));
+// console.log(calculateMoney(1055));
+// console.log(calculateMoney(-130));
+// console.log(calculateMoney('monir'));
 
-function jobSelection(info) {
-    //validation check:
-    if (typeof info !== "object") {
-        return "invalid object"
+// #### Task-27
+function checkName(name) {
+    if (typeof name !== 'string') {
+        return 'Invalid';
     }
 
-    let total_marks = info.honors + info.hsc;
+    // let lastLetter = name[name.length-1];
+    let lastLetter = name.slice(-1).toLowerCase();
+    let checkArray = ['a', 'y', 'i', 'e', 'o', 'u', 'w'];
+
+    // Approse No: 1
+    // let result = false;
+    // for (let charAt of checkArray) {
+    //     if (charAt === lastLetter) {
+    //         result = true
+    //     }
+    // }
+
+    // Approse No: 2
+    let result = checkArray.includes(lastLetter);
+
+    return result ? 'Good Name' : 'Bad Name';
+}
+
+// console.log(checkName("Salman"));
+// console.log(checkName("RAFEE"));
+// console.log(checkName("Jhankar"));
+// console.log(checkName(199));
+// console.log(checkName(["Rashed"]));
+
+// #### Task-28
+function deleteInvalids(array) {
+    //Validation:
+    if (!Array.isArray(array)) {
+        return 'Invalid Array';
+    }
+
+    let numberArray = [];
+    for (let element of array) {
+        if (typeof element === 'number' && isNaN(element) === false) {
+            numberArray.push(element);
+        }
+    }
+    return numberArray;
+}
+
+// console.log(deleteInvalids([1, null, undefined, 18, -19, NaN, '12', [1, 2], { ob: 'lala' }]));
+// console.log(deleteInvalids(['1', { num: 2 }, NaN]));
+// console.log(deleteInvalids([1, 2, -3]));
+// console.log(deleteInvalids({ num: [1, 2, 3] }));
+
+//Testing purpuse:-
+// console.log(typeof NaN);
+// console.log(isNaN(NaN))
+
+
+// #### Task-29
+function password(obj) {
+    // validation:
+    if (obj.name === undefined || obj.birthYear === undefined || obj.siteName === undefined || obj.birthYear.toString().length !== 4) {
+        return "invalid"
+    }
     //condition:
-    if (info.isFFfamily) {
-        total_marks = total_marks + (total_marks * (20/100))
-    }
-    console.log('Your Total Mark: ' + total_marks)
-
-    if (info.isFFfamily && total_marks >= 80) {
-        return "So, You can get the job.."
-    } else if (info.isFFfamily && total_marks < 80) {
-        return "So, You can't get the job. Next time you can try.... !!!"
-    } else if (!info.isFFfamily && total_marks >= 80) {
-        return "So, You can get the job ... "
-    } else if (!info.isFFfamily && total_marks < 80) {
-        return "So, I am sorry,, try another time.."
-    }
+    let capitalSiteName = obj.siteName[0].toUpperCase() + obj.siteName.slice(1)
+    let passwordString = capitalSiteName + '#' + obj.name + '@' + obj.birthYear;
+    return passwordString
 }
 
-const result = jobSelection(person1);
-console.log(result);
+console.log(password({ name: "kolimuddin", birthYear: 1999, siteName: "google" }))
+
+console.log(password({ name: 'rahat', birthYear: 2002, siteName: 'Facebook' }));
+
+console.log(password({ name: 'toky', birthYear: 200, siteName: 'Facebook' }));
+
+console.log(password({ name: 'maisha', birthYear: 2002 }));
+      
+//Testing purpuse:-
+// let birthYear = 1995
+// console.log('hello'.length)
+// console.log(birthYear.toString().length === 4)
