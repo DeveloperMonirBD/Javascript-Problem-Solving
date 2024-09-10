@@ -478,28 +478,61 @@ function deleteInvalids(array) {
 // console.log(typeof NaN);
 // console.log(isNaN(NaN))
 
-
 // #### Task-29
 function password(obj) {
     // validation:
     if (obj.name === undefined || obj.birthYear === undefined || obj.siteName === undefined || obj.birthYear.toString().length !== 4) {
-        return "invalid"
+        return 'invalid';
     }
     //condition:
-    let capitalSiteName = obj.siteName[0].toUpperCase() + obj.siteName.slice(1)
+    let capitalSiteName = obj.siteName[0].toUpperCase() + obj.siteName.slice(1);
     let passwordString = capitalSiteName + '#' + obj.name + '@' + obj.birthYear;
-    return passwordString
+    return passwordString;
 }
 
-console.log(password({ name: "kolimuddin", birthYear: 1999, siteName: "google" }))
+// console.log(password({ name: 'kolimuddin', birthYear: 1999, siteName: 'google' }));
 
-console.log(password({ name: 'rahat', birthYear: 2002, siteName: 'Facebook' }));
+// console.log(password({ name: 'rahat', birthYear: 2002, siteName: 'Facebook' }));
 
-console.log(password({ name: 'toky', birthYear: 200, siteName: 'Facebook' }));
+// console.log(password({ name: 'toky', birthYear: 200, siteName: 'Facebook' }));
 
-console.log(password({ name: 'maisha', birthYear: 2002 }));
-      
+// console.log(password({ name: 'maisha', birthYear: 2002 }));
+
 //Testing purpuse:-
 // let birthYear = 1995
 // console.log('hello'.length)
 // console.log(birthYear.toString().length === 4)
+
+// #### Task-30
+function monthlySavings(arr, livingCost) {
+    // array validation :
+    if (!Array.isArray(arr) || typeof livingCost !== 'number') {
+        return 'invalid input';
+    }
+    
+    // Calculate Total Income:
+    let totalIncome = 0;
+    for (let payment of arr) {
+        if (payment >= 3000) {
+            let tax = payment * (20 / 100);
+            totalIncome += payment - tax;
+        } else {
+            totalIncome += payment;
+        }
+    }
+
+    let savings = totalIncome - livingCost;
+
+    // if (savings >= 0) {
+    //     return savings
+    // } else {
+    //     return 'earn more'
+    // }
+
+    return savings >= 0 ? savings : 'earn more';
+}
+
+console.log(monthlySavings([1000, 2000, 3000], 5400));
+console.log(monthlySavings([1000, 2000, 2500], 5000));
+console.log(monthlySavings([900, 2700, 3400], 10000));
+console.log(monthlySavings(100, [900, 2700, 3400]));
