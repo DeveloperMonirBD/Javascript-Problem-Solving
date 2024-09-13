@@ -342,26 +342,26 @@ var a = [1, 2, '3', 4, 5];
 
 //abc trangle --->  ac^2 = ab^2 + bc^2
 
-// function somokoniTest(ac, ab, bc) {
-//     //validation check:
-//     if (typeof ac !== 'number' || typeof ab !== 'number' || typeof ac !== 'number') {
-//         return 'Invalid input';
-//     }
+function somokoniTest(ac, ab, bc) {
+    //validation check:
+    if (typeof ac !== 'number' || typeof ab !== 'number' || typeof ac !== 'number') {
+        return 'Invalid input';
+    }
 
-//     const biggestSquare = ac ** 2;
-//     const smallSquare1 = ab ** 2;
-//     const smallSquare2 = bc ** 2;
+    const biggestSquare = ac ** 2;
+    const smallSquare1 = ab ** 2;
+    const smallSquare2 = bc ** 2;
 
-//     //ac^2 = ab^2 + bc^2
-//     if (biggestSquare === (smallSquare1 + smallSquare2)) {
-//         return "Somokoni Trangle ... !"
-//     } else {
-//         return "Not Somokoni Trangle ... !"
-//     }
-// }
+    //ac^2 = ab^2 + bc^2
+    if (biggestSquare === smallSquare1 + smallSquare2) {
+        return 'Somokoni Trangle ... !';
+    } else {
+        return 'Not Somokoni Trangle ... !';
+    }
+}
 
-// const result = somokoniTest(5, 3, 4)
-// console.log(result)
+const result = somokoniTest(5, 3, 4);
+console.log(result);
 
 // ### Task-25
 
@@ -678,3 +678,59 @@ function waitingTime(waitingTimes, serialNumber) {
 // console.log(waitingTime(7, 10));
 // console.log(waitingTime('[6,2]', 9));
 // console.log(waitingTime([7, 8, 3, 4, 5], '9'));
+
+// ### Task-36
+
+let temperature = [-2, 4, 45, 23, -4, 'error', -6, -8, 34, 43];
+
+function getHigherAndLower(arr) {
+    // create a higher variable.
+    let higher = arr[0];
+    // create a lower variable.
+    let lower = arr[0];
+
+    // iterate the whole array.
+    for (let i = 0; i < arr.length; i++) {
+        // let's check is there has any error.
+        if (typeof arr[i] !== 'number') continue;
+        // console.log(typeof arr[i])
+
+        // if higher variable has smaller number than our current number then value will be our current element.
+        if (higher < arr[i]) {
+            higher = arr[i];
+        }
+
+        // if lower variable has bigger number than our current number then value will be our current element.
+        if (lower > arr[i]) {
+            lower = arr[i];
+        }
+    }
+    // console.log(lower, higher);
+
+    // return pur higher variable and lower variable.
+    return higher - lower;
+}
+
+// getHigherAndLower([3, 5, -5]);
+// console.log(getHigherAndLower(temperature));
+
+
+// ### Task-37
+
+function charCount(str) {
+    let charList = {};
+
+    for (let i = 0; i < str.length; i++) {
+        let char = str[i].toLowerCase();
+
+        if (charList[char] > 0) {
+            charList[char]++;
+        } else {
+            charList[char] = 1;
+        }
+    }
+
+    return charList;
+}
+
+console.log(charCount('Hello Everyone'));
