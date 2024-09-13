@@ -714,7 +714,6 @@ function getHigherAndLower(arr) {
 // getHigherAndLower([3, 5, -5]);
 // console.log(getHigherAndLower(temperature));
 
-
 // ### Task-37
 
 function charCount(str) {
@@ -733,4 +732,24 @@ function charCount(str) {
     return charList;
 }
 
-console.log(charCount('Hello Everyone'));
+// console.log(charCount('Hello Everyone'));
+
+
+// ### Task - 38 
+function same(arr1, arr2) {
+    if (arr1.length !== arr2.length) {
+        return false;
+    }
+
+    for (let i = 0; i < arr1.length; i++) {
+        let currentIndex = arr2.indexOf(arr1[i] ** 2);
+        if (currentIndex === -1) {
+            return false;
+        }
+
+        arr2.splice(currentIndex, 1);
+    }
+    return true;
+}
+
+// console.log(same([2, 3, 6], [9, 4, 36]));
